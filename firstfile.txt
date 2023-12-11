@@ -1,0 +1,294 @@
+#include <stdio.h>
+int main()
+{
+    int n;
+    printf("how many elements?:");
+    scanf("%d",&n);
+    int arr[n];
+    for(int i=0;i<n;i++)
+    {
+        printf("enter element number %d:",i+1);
+        scanf("%d",&arr[i]);
+    }
+    int element;int res=-1;
+    printf("enter element to search :");
+    scanf("%d",&element);
+    int low=0,high=n-1;
+    while(low<=high)
+    {
+        int mid=(low+high)/2;
+        if(element<arr[mid])
+        {
+            high=mid-1;
+        }
+        if(element>arr[mid])
+        {
+            low=mid+1;
+        }
+        if(element==arr[mid])
+        {
+            res=mid;
+            break;
+        }
+
+    }
+    if(res==-1)
+        printf("element does not exist in array ");
+    else
+        printf("element found at index:%d",res);
+    return 0;
+}
+#include <stdio.h>
+int main()
+{
+    int n;
+    printf("how many elements?:");
+    scanf("%d",&n);
+    int arr[n];
+    for(int i=0;i<n;i++)
+    {
+        printf("enter element number %d:",i);
+        scanf("%d",&arr[i]);
+    }
+    for(int count=1;count<n;count++)
+    {
+        int item=arr[count];
+        int j=count-1;
+        while(j>=0 && arr[j]>item)
+        {
+            arr[j+1]=arr[j];
+            j--;
+        }
+        arr[j+1]=item;
+    }
+    for(int i=0;i<n;i++)
+    {
+        printf("%d ",arr[i]);
+    }
+    return 0;
+}
+#include<stdio.h>
+#include<string.h>
+
+#define STACKSIZE 100
+struct stack
+{
+    int top;
+    char items[STACKSIZE];
+
+};
+int is_empty(struct stack *s)
+{
+    if(s->top==-1)
+    {
+        
+        return 1;
+    }
+    else
+    {
+        
+        return 0;
+    }
+}
+void push(struct stack *s,char element)
+{
+    if(s->top==STACKSIZE)
+    {
+        printf("stack overflow...cannot add more elements");
+        return;
+    }
+    else
+    {
+        (s->top)++;
+        s->items[s->top]=element;
+    }
+}
+char pop(struct stack *s1)
+{
+    if(is_empty(s1))
+    {
+        printf("stack underflow");
+        return -1;
+    }
+    else
+    {
+        char x=s1->items[s1->top];
+        s1->top--;
+        return x;
+    }
+}
+char stack_top(struct stack *s)
+{
+    if(is_empty(s))
+    {
+        printf("no element present");
+        return -1;
+    }
+    else
+    {
+        return s->items[s->top];
+    }
+}
+void valid_paranthesis(struct stack *s, char exp[])
+{
+    for(int i=0;exp[i]!=0;i++)
+    {
+        if(exp[i]=='{' || exp[i]=='(' || exp[i]=='[')
+        {
+            push(s,exp[i]);
+        }
+        else
+        {
+            if(exp[i]=='}')
+            {
+                if(stack_top(s)!='{')
+                {
+                    printf("invalid");
+                    return;
+                }
+                else
+                {
+                    pop(s);
+                }
+            }
+            if(exp[i]==']')
+            {
+                if(stack_top(s)!='[')
+                {
+                    printf("invalid");
+                    return;
+                }
+                else
+                {
+                    pop(s);
+                }
+            }
+            if(exp[i]==')')
+            {
+                if(stack_top(s)!='(')
+                {
+                    printf("invalid");
+                    return;
+                }
+                else
+                {
+                    pop(s);
+                }
+            }
+            
+        }
+    }
+    if(is_empty(s))
+    {
+        printf("valid \n");
+        return ;
+    }
+    else
+    {
+        
+        printf("invalid \n");
+        return;
+    }
+}
+int main()
+{
+    char exp[20];
+    printf("enter your expression:");
+    scanf("%s",exp);
+    struct stack s1;
+    s1.top=-1;
+    valid_paranthesis(&s1,exp);
+
+}
+[Your Name]
+[Your Position in Let's Talk DTU]
+[Your Contact Information]
+[Date]
+
+[Security Officer's Name]
+[Security Department]
+[DTU Auditorium]
+[Delhi Technological University]
+[University Address]
+
+Subject: Request for Security Personnel for Motivational Event at BR Auditorium
+
+Dear [Security Officer's Name],
+
+I am writing to inform you that Let's Talk DTU, a prominent society within Delhi Technological University, is organizing a motivational event at the BR Auditorium. We are enthusiastic about this event and anticipate a large turnout, and thus, we seek your assistance in ensuring its security and success.
+
+Event Details:
+• Date and Time: [Event Date] at [Event Time]
+• Speaker Name: [Speaker's Name]
+• Expected Crowd: [Number of Attendees]
+• Guards Required: [Number of Security Personnel]
+
+We believe that your support is crucial in making this event safe and secure for all attendees. Therefore, we kindly request the provision of security personnel for the specified date and time to oversee crowd management, monitor entrances and exits, and ensure the overall security of the event. The exact number of security personnel needed will be determined based on the expected crowd, and we trust your expertise in making this determination.
+
+We look forward to your assistance and cooperation in helping us ensure a successful and secure event. Should you require any additional information or have specific guidelines for the security personnel, please do not hesitate to reach out to us.
+
+Thank you for considering our request, and we eagerly await your response.
+
+Sincerely,
+
+[Your Name]
+[Your Position in Let's Talk DTU]
+[Contact Information]
+
+
+The speaker provided practical examples of how brainstorming is used in various industries, from product development to problem-solving. Attendees gained a better understanding of how to apply these techniques in both academic and professional contexts.
+
+After Mr. X's presentation, the audience participated in a group discussion on stress management. Attendees shared their experiences and insights on identifying stress triggers in their lives, which ranged from academic pressures to personal challenges.The group discussion also focused on sharing practical stress management techniques. Attendees discussed strategies such as time management, relaxation exercises, seeking support from peers and professionals, and practicing mindfulness.The session emphasized the importance of peer support in managing stress. Attendees were encouraged to lean on their fellow society members for guidance and support during challenging times.
+
+The practical exercises and open discussions served as valuable tools to help members improve their skills and well-being. We look forward to applying the knowledge and techniques learned in our academic and personal lives, ultimately contributing to our growth and resilience.
+
+Members gathered for a communal lunch, providing an opportunity for networking and casual discussions. The relaxed environment fostered connections among attendees and offered a break before the subsequent activities.
+The afternoon resumed with a stimulating book reading session featuring discussions on "Designing Destiny" and "Autobiographies of Great Leaders." Attendees engaged in thought-provoking conversations about personal development, leadership, and the power of shaping one's future through these insightful readings.
+
+Following the insightful sessions on "Healthy Living and Self Development" and "Brainstorming" with Mr. X, STEP-DTU organized a series of diverse activities designed to promote relaxation, learning, and team building among society members on [insert date].
+
+The book reading session that unfolded between 3:00 PM and 4:00 PM proved to be an intellectually invigorating interlude within the day's activities. With a focus on two distinct yet complementary literary themes—“Designing Destiny” and “Autobiographies of Great Leaders”—the session became a catalyst for stimulating discussions and insightful reflections.
+The exploration of “Designing Destiny” provided a platform for members to delve into the intricate workings of personal development, goal setting, and the influence of individual choices on shaping one's future. Conversations centered around the power of intention, the impact of habits and mindset, and strategies for envisioning and achieving one's aspirations. Attendees shared personal anecdotes, experiences, and strategies they found particularly resonant, fostering a sense of introspection and motivation among the participants.
+Simultaneously, the engagement with “Autobiographies of Great Leaders” served as an invaluable source of inspiration. Members delved into the life stories of renowned figures, extracting lessons, values, and leadership qualities that can be emulated in both personal and professional spheres. The session sparked discussions on the leadership styles, resilience in the face of challenges, and the significance of learning from the successes and failures of influential personalities. It offered a tapestry of diverse perspectives that enriched the understanding of leadership and personal growth.
+The dynamic exchange of ideas, interpretations, and shared enthusiasm for the readings created an environment conducive to learning and self-reflection. Participants found resonance in different aspects of the books, allowing for a multifaceted exploration of the themes discussed. The session not only broadened the literary horizons of the attendees but also offered practical insights that could be implemented in their academic pursuits and personal journeys.
+
+Overall, the book reading session served as an intellectual feast, fostering a deeper understanding of personal development, leadership, and the boundless potential of individual growth. It left a lasting impact on the members, inspiring them to approach their lives with a renewed sense of purpose and a broader perspective on designing their destinies.
+
+A session dedicated to individual meditation provided a serene break. Participants were encouraged to focus inward, practicing mindfulness and relaxation techniques. This introspective period aimed to rejuvenate the mind and spirit, promoting mental well-being among members.Many of the members learned about correct meditation postures,the face expression and the art of keeping the mind completely blank.
+
+5:00 PM - 6:30 PM: Team Building Activities
+The day culminated in a series of team building activities. Attendees were divided into groups and participated in collaborative exercises that emphasized teamwork, communication, and problem-solving. These activities encouraged cooperation and unity among the members, fostering a stronger sense of community within the society.
+
+The diverse array of activities not only catered to different preferences but also contributed to the holistic development of the attendees. 
+
+The afternoon activities following the enlightening sessions were a well-rounded blend of relaxation, education, and team building. Members had the chance to unwind during lunch, engage in intellectual discourse during the book reading session, find inner peace through meditation, and enhance their teamwork and interpersonal skills in the team building activities.
+
+I hope this message finds you in great spirits and health. It's with immense gratitude and a heart filled with appreciation that I reach out to each and every one of you who contributed their time, energy, and expertise during the Sustainability Seminar (SOS) on October 30th and 31st.
+
+The event took place on the said dates and I'm delighted to share that it was not just nice but also incredibly successful. It's incredible how, when like-minded individuals come together with a shared vision, the possibilities become endless. The fervor, dedication, and tireless efforts put forth by all of you truly made the event a resounding success.
+
+I want to take a moment to spotlight the remarkable efforts of our volunteers. Your selfless dedication, hard work, and ever-present enthusiasm did not go unnoticed. Your willingness to go above and beyond in ensuring the smooth execution of the event was truly commendable. Whether it was assisting the speakers, guiding attendees, or managing the logistics, your commitment was invaluable and played a pivotal role in making the seminar a success.
+
+Your passion for sustainability was not only evident in your words but also in your actions. Your commitment to the cause of sustainability and your eagerness to contribute exemplify the spirit we aim to instill in our society.
+
+On behalf of the organizing committee, I extend my deepest thanks to each and every one of you. Your invaluable contributions and unwavering support made the event not just successful, but an inspiring testament to the power of collective effort.
+
+Let's carry this momentum forward, building on the knowledge and connections forged during the seminar. By continuing to advocate for sustainable practices, we can make a tangible difference in our environment and society.
+
+Once again, thank you for being an integral part of the Sustainability Seminar. Your participation and support made a world of difference.
+
+Warm regards,
+
+[Your Name]
+[Your Position]
+STEP-DTU
+
+Feel free to further personalize this section or add any specific instances that highlight the volunteers' exceptional work.
+
+
+
+
+
+
+Regenerate
+
